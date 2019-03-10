@@ -7,7 +7,22 @@ App = React.createClass({
         };
     },
 
+
+    handleSearch: function (searchingText) {  
+        this.setState({
+            loading: true  
+        });
+        this.getGif(searchingText, function (gif) {  
+            this.setState({  
+                loading: false,  
+                gif: gif,  
+                searchingText: searchingText  
+            });
+        }.bind(this));
+    },
     getGif: function(searchingText, callback) {  
+        var GIPHY_API_URL = 'https://api.giphy.com';
+        var GIPHY_PUB_KEY = 'Gh1yoqICnFu2D5Uo760Vle58P0N5QCsC';
         var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText; 
         var xhr = new XMLHttpRequest();  
         xhr.open('GET', url);
@@ -36,10 +51,14 @@ App = React.createClass({
 
         return (
             <div style={styles}>
-                    <h1>Wyszukiwarka GIFow!</h1>
-                    <p>Znajdź gifa na <a href='http://giphy.com'>giphy</a>. Naciskaj enter, aby pobrać kolejne gify.</p>
-                    <Search />
-                <Gif />
+                <h1>Wyszukiwarka GIFow!</h1>
+                <p>Znajdź gifa na <a href='http://giphy.com'>giphy</a>. Naciskaj enter, aby pobrać kolejne gify.</p>
+                <Search onSearch={this.handleSearch} />
+                <Gif 
+                    loading={this.state.loading}
+                    url={this.state.gif.url}
+                    sourceUrl={this.state.gif.sourceUrl}
+                />
             </div>
         )
     }
