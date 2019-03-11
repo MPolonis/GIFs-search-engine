@@ -1,0 +1,26 @@
+{
+  "name": "gifs-search-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MPolonis/GIFs-search-engine.git"
+  },
+  "keywords": [
+    "gif"
+  ],
+  "author": "M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MPolonis/GIFs-search-engine/issues"
+  },
+  "homepage": "https://github.com/MPolonis/GIFs-search-engine#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
