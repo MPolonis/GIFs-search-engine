@@ -9,13 +9,13 @@ App = React.createClass({
 
     getGif: function(searchingText) { 
         return new Promise (
-            function (resolve, reject) {
+            (resolve, reject) => {
                 const GIPHY_API_URL = 'https://api.giphy.com';
                 const GIPHY_PUB_KEY = 'Gh1yoqICnFu2D5Uo760Vle58P0N5QCsC';
                 const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText; 
                 const request = new XMLHttpRequest();
                 request.open('GET', url); 
-                request.onload = function () { 
+                request.onload = () => { 
                     if (this.status === 200) {
                         const data = JSON.parse(request.responseText).data; 
                         const gif = {  
