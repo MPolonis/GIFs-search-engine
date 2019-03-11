@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/MPolonis/GIFs-search-engine#readme",
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "http-server": "^0.11.1"
   }
 }
